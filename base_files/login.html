@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login - HBnB Evolution</title>
+    <link rel="stylesheet" href="/base_files/styles.css">
+    <link rel="icon" type="image/png" href="/icons/icon.png">
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Application Logo" class="logo">
-        <a href="login.html" class="login-button">Login</a>
+        <div class="logo">
+            <img src="/icons/logo.png" alt="HBnB Evolution">
+        </div>
+        <nav>
+            <a href="/base_files/index.html">Home</a>
+            <a href="/base_files/login.html" id="login-link">Login</a>
+        </nav>
     </header>
+
     <main>
-        <form id="login-form">
-            <h2>Login</h2>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Login</button>
-        </form>
+        <section class="login-container">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
     </main>
+
     <footer>
-        <p>All rights reserved.</p>
+        <p>&copy; 2024 HBnB Evolution. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
 </body>
 </html>

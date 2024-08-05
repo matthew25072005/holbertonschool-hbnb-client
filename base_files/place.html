@@ -3,27 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Details</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Detalles del Lugar</title>
+    <link rel="stylesheet" href="/base_files/styles.css"> <!-- Incluye tu archivo CSS -->
 </head>
 <body>
-    <main>
-        <section id="place-details">
-            <!-- Place details will be populated dynamically -->
-        </section>
-        <section id="reviews">
-            <!-- Reviews will be populated dynamically -->
-        </section>
-        <section id="add-review">
-            <h2>Add a Review</h2>
-            <form id="review-form">
-                <label for="review-text">Review:</label>
-                <textarea id="review-text" name="review-text" required></textarea>
-                
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </main>
-    <script src="scripts.js"></script>
+    <!-- Contenedor principal de detalles del lugar -->
+    <div class="place-details">
+        <img id="place-image-large" class="place-image-large" src="" alt="Imagen del Lugar">
+        <div class="place-info">
+            <h1 id="place-name">Nombre del Lugar</h1>
+            <p id="place-description">Descripción del Lugar</p>
+            <p id="place-location">Ubicación: </p>
+            <p id="place-price">Precio: </p>
+            <ul id="place-amenities">
+                <!-- Lista de comodidades se llenará dinámicamente -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sección de reseñas -->
+    <div id="reviews-section">
+        <!-- Las reseñas se agregarán aquí dinámicamente -->
+    </div>
+
+    <!-- Sección para agregar una reseña -->
+    <div id="add-review-section">
+        <!-- Botón para agregar una reseña, visible solo si el usuario no está autenticado -->
+        <a href="add_review.html" id="add-review-button" class="add-review">Agregar Reseña</a>
+
+        <!-- Formulario para agregar una reseña, visible solo si el usuario está autenticado -->
+        <form id="add-review-form" class="add-review" action="submit-review-url" method="post">
+            <textarea name="review" placeholder="Escribe tu reseña aquí" required></textarea>
+            <select name="rating" required>
+                <option value="1">1 estrella</option>
+                <option value="2">2 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+            </select>
+            <button type="submit">Enviar Reseña</button>
+        </form>
+    </div>
+
+    <!-- Incluye tu archivo JavaScript -->
+    <script src="/base_files/scripts.js"></script>
 </body>
 </html>

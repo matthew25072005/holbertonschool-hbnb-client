@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Retreat</title>
+    <link rel="stylesheet" href="/base_files/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/icons/logo.png" alt="HBnB Evolution">
+        </div>
+        <nav>
+            <a href="/base_files/index.html">Home</a>
+            <a href="/base_files/login.html" id="login-link" class="login-button">Login</a>
+        </nav>
+    </header>
+    <main>
+        <section class="property-details">
+            <h1>Mountain Retreat</h1>
+            <p><strong>Host:</strong> Emily White</p>
+            <p><strong>Price per night:</strong> $130</p>
+            <p><strong>Location:</strong> Aspen, United States</p>
+            <p><strong>Description:</strong> A cozy retreat in the mountains...</p>
+            <p><strong>Amenities:</strong> Fireplace, Ski-in/Ski-out, WiFi</p>
+        </section>
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p><strong>Mark Johnson:</strong> Perfect for a winter getaway!</p>
+                <p>Rating: ★★★★★</p>
+            </div>
+            <div class="review">
+                <p><strong>Laura Davis:</strong> Beautiful and peaceful place.</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+        </section>
+        <section class="add-review">
+            <h2>Add a Review</h2>
+            <form action="#">
+                <textarea name="review" id="review" rows="4" placeholder="Your Review"></textarea>
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating">
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        © 2024 HbNb Evolution. All rights reserved.
+    </footer>
+</body>
+</html>

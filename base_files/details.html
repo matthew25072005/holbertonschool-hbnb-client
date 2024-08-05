@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="/icons/logo.png" alt="HBnB logo" class="logo">
+        <nav>
+            <a href="login.html" class="login-button">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="property-title">Property Title</h1>
+        <div class="place-details">
+            <p><strong>Host:</strong> <span id="host-name">Host Name</span></p>
+            <p><strong>Price per night:</strong> <span id="price">Price</span></p>
+            <p><strong>Location:</strong> <span id="location">Location</span></p>
+            <p><strong>Description:</strong> <span id="description">Description</span></p>
+            <p><strong>Amenities:</strong> <span id="amenities">Amenities</span></p>
+        </div>
+
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <div id="reviews-container">
+                <!-- Reviews will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="add-review">
+            <h2>Add a Review</h2>
+            <form action="#" method="post">
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" name="review-text" rows="4" required></textarea>
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="5">5 Stars</option>
+                </select>
+
+                <button type="submit" class="submit-button">Submit Review</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 HBnB Evolution. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example data for properties
+            const properties = {
+                1: {
+                    title: "Charming Apartment in Paris",
+                    host: "Alice Dupont",
+                    price: "$120 per night",
+                    location: "Paris, France",
+                    description: "A charming apartment in the heart of Paris...",
+                    amenities: "WiFi, Kitchen, Heating",
+                    reviews: [
+                        { name: "Emily Clark", review: "Wonderful place!", rating: "★★★★★" },
+                        { name: "Michael Lee", review: "Very cozy and central.", rating: "★★★★" }
+                    ]
+                },
+                2: {
+                    title: "Beachfront Villa in Bali",
+                    host: "Nyoman Putra",
+                    price: "$200 per night",
+                    location: "Bali, Indonesia",
+                    description: "A beautiful beachfront villa with stunning ocean views...",
+                    amenities: "WiFi, Pool, Air Conditioning",
+                    reviews: [
+                        { name: "Jane Smith", review: "Great place to stay!", rating: "★★★★★" },
+                        { name: "Robert Brown", review: "Amazing location and very comfortable.", rating: "★★★★★" }
+                    ]
+                }
+            };
+
+            // Function to get query parameter
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            // Get property ID from URL
+            const propertyId = getQueryParameter('property');
+
+            // Populate the page with property details
+            if (propertyId && properties[propertyId]) {
+                const property = properties[propertyId];
+                document.getElementById('property-title').textContent = property.title;
+                document.getElementById('host-name').textContent = property.host;
+                document.getElementById('price').textContent = property.price;
+                document.getElementById('location').textContent = property.location;
+                document.getElementById('description').textContent = property.description;
+                document.getElementById('amenities').textContent = property.amenities;
+
+                // Populate reviews
+                const reviewsContainer = document.getElementById('reviews-container');
+                reviewsContainer.innerHTML = ''; // Clear existing reviews
+                property.reviews.forEach(review => {
+                    const reviewElement = document.createElement('div');
+                    reviewElement.classList.add('review');
+                    reviewElement.innerHTML = `<p><strong>${review.name}:</strong> ${review.review}</p><p>Rating: ${review.rating}</p>`;
+                    reviewsContainer.appendChild(reviewElement);
+                });
+            } else {
+                document.querySelector('main').innerHTML = '<p>Property not found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
